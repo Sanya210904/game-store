@@ -1,0 +1,8 @@
+@import 'reset';
+@import 'variables/global';
+@import 'colors/index';
+
+.app {
+  font-family: var(--font-family-main);
+  color: var(--text-primary);
+}

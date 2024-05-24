@@ -1,0 +1,23 @@
+.footer {
+  background-color: #101010;
+  height: var(--footer-height);
+}
+
+.footerContainer {
+  width: 940px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerLogo {
+  width: 183px;
+  height: 44px;
+}
+
+.footerText {
+  color: #fff;
+  font-size: 12px;
+}
