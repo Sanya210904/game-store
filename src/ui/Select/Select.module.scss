@@ -1,0 +1,42 @@
+.customCombobox {
+	position: relative;
+	width: 276px;
+	height: 20px;
+	border-radius: 2px;
+	padding: 3px 7px;
+	background: linear-gradient(to top, var(--select-filter-from) 0%, var(--select-filter-to) 100%);
+	box-shadow: 0 2px 2px 0 var(--shadow-dark);
+	color: var(--text-secondary);
+	font-style: italic;
+	font-weight: 400;
+	font-size: 12px;
+	display: inline-block;
+}
+
+.inputContainer {
+	display: flex;
+	align-items: center;
+}
+
+.inputText {
+	flex: 1;
+}
+
+.separator2 {
+	margin: 0 5px;
+	font-style: normal;
+}
+
+.selectBox {
+	appearance: none; 
+	background: transparent;
+	border: none; 
+	outline: none;
+	color: inherit; 
+}
+
+.dropdownIndicator {
+	margin-left: auto;
+	cursor: pointer;
+	font-style: normal;
+}
