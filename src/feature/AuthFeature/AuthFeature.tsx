@@ -13,6 +13,12 @@ const AuthFeature: FC<AuthFeatureProps> = (props) => {
   const [error, setError] = useState('');
 
   const handleSubmitButton = () => {
+    if (authType === 'login') {
+
+    }
+    if (authType === 'register') {
+      
+    }
     console.log('sent');
   };
 

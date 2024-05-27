@@ -17,13 +17,19 @@ const initialState: IState = {
   totalPrice: 0,
 };
 
-export const handleGetCart = createAsyncThunk('cart/get', async () => {});
+export const handleGetCart = createAsyncThunk('cart/get', async () => {
 
-export const handleAddToCart = createAsyncThunk('cart/add', async () => {});
+});
+
+export const handleAddToCart = createAsyncThunk('cart/add', async () => {
+
+});
 
 export const handleRemoveFromCart = createAsyncThunk(
   'cart/remove',
-  async () => {}
+  async () => {
+    
+  }
 );
 
 export const handleClearFromCart = createAsyncThunk(
