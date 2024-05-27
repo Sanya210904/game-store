@@ -1,5 +1,5 @@
 import { ReactNode, FC } from 'react';
-import classes from './Modal.module.css';
+import classes from './Modal.module.scss';
 import Portal from '../Portal/Portal';
 
 interface IModalProps {
