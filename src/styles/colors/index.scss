@@ -1,15 +1,37 @@
 :root {
-  --surface-primary-from: #3b3938;
+  --surface-primary-from: #3B3938;
   --surface-primary-to: #101010;
   --surface-secondary: #101010;
   --surface-overlay: ;
+  
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+  
+  --text-primary: #FFF;
+  --text-secondary: #DFDFDF;
+  
+  --input-search: #82807C;
+  --input-auth: #DFDFDF;
+  --input-border: #4D4B49;
+  --input-separator: #D6D7D8;
 
-  --text-primary: #fff;
-  --text-secondary: #dfdfdf;
+  --select-filter-from: #6E6A69; //Note: all gradients go from bottom to top
+  --select-filter-to: #595553;
+  
+  --button-pink-from: #FF60AC;
+  --button-pink-to: rgba(183, 76, 127, 0.3);
+  
+  --button-pink-from-hover: #FF73B6;
+  --button-pink-to-hover: rgba(255, 116, 182, 0.3);
 
-  --button-primary-from: ;
-  --button-primary-to: ;
-
-  --button-secondary-from: #00c880;
-  --button-secondary-to: rgba(76, 183, 119, 0.3);
+  --button-green-from: #00C880;
+  --button-green-to: rgba(76, 183, 119, 0.3);
+  
+  --button-green-from-hover: #00FFA3;
+  --button-green-to-hover: rgba(0, 255, 102, 0.3);
+  
+  --button-blue-from: #00A4C8;
+  --button-blue-to: rgba(76, 164, 183, 0.3);
+  
+  --button-blue-from-hover: #00D1FF;
+  --button-blue-to-hover: rgba(61, 184, 210, 0.3);
 }

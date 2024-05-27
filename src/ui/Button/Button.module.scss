@@ -1,0 +1,206 @@
+button {
+	cursor: pointer;
+	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 500 !important;
+	font-size: 14px;
+	color: var(--text-primary);
+	text-shadow: 0px 2px 2px var(--shadow-dark);
+	box-shadow: 0px 2px 2px var(--shadow-dark);
+	background: transparent;
+	border: none;
+	border-radius: 2px;
+}
+
+.headerAccount {					// Sign in / Sign up button in the header
+	font-weight: 400;
+	color: var(--text-secondary);
+	padding: 0 10px;
+	box-shadow: none;
+	text-shadow: none;
+	border-radius: 0;
+	
+	&:hover {
+		font-weight: 500;
+		color: var(--text-primary);
+	}
+}
+
+.signinOptions {					// The "don't have an account?" and "forgot your password?" buttons in the sign in pop-up
+	font-weight: 400;
+	color: var(--text-secondary);
+	text-shadow: none;
+	box-shadow: none;
+	border-radius: 0;
+	
+	&:hover {
+		font-weight: 500;
+		color: var(--text-primary);
+		text-decoration: underline;
+	}
+}
+
+.storeNavbar {						// Store navbar buttons
+	font-weight: 400;
+	color: var(--text-secondary);
+	width: fit-content;
+	height: 35px;
+	padding: 0 20px;
+	box-shadow: none;
+	border-radius: 0;
+	
+	&:hover {
+		font-weight: 500;
+		color: var(--text-primary);
+		background: linear-gradient(to top, var(--button-pink-from) 6.7%, var(--button-pink-to) 63.88%);
+		box-shadow: inset 0px -2px 3px var(--shadow-dark);
+	}
+}
+
+.storeNavbarCart {					// Store navbar cart button
+	align-content: center;
+	width: fit-content;
+	height: 35px;
+	padding-left: 9px;
+	padding-right: 9px;
+	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
+	box-shadow: inset 0px -2px 3px var(--shadow-dark);
+	border-radius: 0;
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
+	}
+}
+
+.homeMore {							// The small "more" button on the main page
+	font-weight: 600;
+	width: 65px;
+	height: 19px;
+	background: linear-gradient(to top, var(--button-pink-from) 6.7%, var(--button-pink-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-pink-from-hover) 6.7%, var(--button-pink-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-pink-from);
+	}
+}
+
+.normalPink {						// Standard pink button
+	width: 130px;
+	height: 31px;
+	background: linear-gradient(to top, var(--button-pink-from) 6.7%, var(--button-pink-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-pink-from-hover) 6.7%, var(--button-pink-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-pink-from);
+	}
+}
+
+.normalGreen {						// Standard green button
+	width: 130px;
+	height: 31px;
+	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-green-from);
+	}
+}
+
+.continueShopping {					// Continue shopping button (in the shopping cart)
+	width: 160px;
+	height: 31px;
+	background: linear-gradient(to top, var(--button-pink-from) 6.7%, var(--button-pink-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-pink-from-hover) 6.7%, var(--button-pink-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-pink-from);
+	}
+}
+
+.cartPay {							// Wide green pay button (in the shopping cart)
+	width: 276px;
+	height: 31px;
+	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-green-from);
+	}
+}
+
+.price {							// Standard price tag style
+	font-weight: 500;
+}
+
+.pricePay {							// Pay button price tag style
+	font-weight: 600;
+}
+
+.cartIcon {							// Cart icon
+	-webkit-filter: drop-shadow(0px 2px 2px var(--shadow-dark));
+	filter: drop-shadow(0px 2px 2px var(--shadow-dark));
+}
+
+.buyButtonContainer {				// Layout stuff
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.buyButtonTextContainer {			// More layout stuff
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.homeFeaturedBuy {					// Buy button on the main banner on the main page
+	font-weight: 400;
+	width: 109px;
+	height: 60px;
+	border-radius: none;
+	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-green-from);
+	}
+}
+
+.homeDiscountsBuy {					// Small discount buy button (home page)
+	width: 65px;
+	height: 40px;
+	border-radius: none;
+	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
+	font-weight: 600;
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-green-from);
+	}
+}
+
+.gameDetailsBuy {					// Standard buy button (game page)
+	font-weight: 400;
+	width: 114px;
+	height: 52px;
+	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
+		box-shadow: 0px 2px 2px var(--button-green-from);
+	}
+}
+
+.gameDetailsMods {					// Mods button (game page)
+	width: fit-content;
+	height: 46px;
+	padding: 0 20px;
+	background: linear-gradient(to top, var(--button-blue-from) 6.7%, var(--button-blue-to) 63.88%);
+	box-shadow: inset 0px -2px 3px var(--shadow-dark);
+	border-radius: 0;
+	
+	&:hover {
+		background: linear-gradient(to top, var(--button-blue-from-hover) 6.7%, var(--button-blue-to-hover) 63.88%);
+	}
+}
