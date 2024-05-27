@@ -1,0 +1,10 @@
+.cart {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartItemsBlock {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}

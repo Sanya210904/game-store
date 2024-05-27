@@ -7,6 +7,7 @@ import Select from './ui/Select/Select'
 import AppRouter from './router/AppRouter';
 
 function App() {
+  
   return (
     <div className="app">
       <AppRouter />
