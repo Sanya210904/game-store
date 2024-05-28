@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import GameCard from '../../components/GameCard/GameCard';
 import cls from './SearchPage.module.scss';
 import $api from '../../api';
@@ -8,6 +8,7 @@ import { Button, Select } from '../../ui';
 
 const SearchPage = () => {
   const { search } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const genres = queryParams.get('genres');
@@ -16,6 +17,37 @@ const SearchPage = () => {
   const [totalGames, setTotalGames] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(genres || '');
+
+   const availableGenres = [
+    "Adventure",
+    "Casual",
+    "Indie",
+    "RPG",
+    "Action",
+    "Racing",
+    "Simulation",
+    "Sports",
+    "Strategy",
+    "Free to Play",
+    "Utilities",
+    "Massively Multiplayer",
+    "Early Access",
+    "Violent",
+    "Gore",
+    "Animation & Modeling",
+    "Video Production",
+    "Design & Illustration",
+    "Photo Editing",
+    "Audio Production",
+    "Software Training",
+    "Education",
+    "Game Development",
+    "Web Publishing",
+    "Nudity",
+    "Movie",
+    "Sexual Content"
+  ];
 
   useEffect(() => {
     getData();
@@ -52,9 +84,16 @@ const SearchPage = () => {
     return <div>Error: {error}</div>;
   }
 
+  let resultMessage = null;
+
   if (!gameList || gameList.length === 0) {
-    return <div>No results found.</div>;
+    resultMessage = <div>No results found.</div>;
   }
+
+  const handleGenreChange = (selectedGenre: string) => {
+    setSelectedGenre(selectedGenre);
+    navigate(`/search/${search}${selectedGenre ? `?genres=${selectedGenre}` : ''}`);
+  };
 
   return (
     <div className={cls.wrapper}>
@@ -62,7 +101,7 @@ const SearchPage = () => {
       <h2 className={cls.title}>{totalGames} Results</h2>
       <div className={cls.block}>
         <div className={cls.gameCardsBlock}>
-          {gameList.map((item) => (
+          {gameList?.map((item) => (
             <GameCard
               key={item.game_id}
               id={item.game_id}
@@ -79,7 +118,12 @@ const SearchPage = () => {
             <span className={cls.blockTitle}>Advanced Search</span>
             <Select textLabel="Developer" options={[{ value: 'Dev1', label: 'Developer 1' }]} />
             <Select textLabel="Publisher" options={[{ value: 'Pub1', label: 'Publisher 1' }]} />
-            <Select textLabel="Genre" options={[{ value: 'Genre1', label: 'Genre 1' }]} />
+            <Select
+              textLabel="Select Genre"
+              options={availableGenres.map(genre => ({ value: genre, label: genre }))}
+              value={selectedGenre}
+              onChange={handleGenreChange}
+            />
             <Select textLabel="Language" options={[{ value: 'Lang1', label: 'Language 1' }]} />
             <Select textLabel="Price" options={[{ value: '10', label: '10' }]} />
             <Select textLabel="Rating" options={[{ value: '4', label: '4' }]} />

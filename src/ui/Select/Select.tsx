@@ -3,16 +3,23 @@ import styles from './Select.module.scss';
 
 interface SelectProps {
   textLabel: string;
-  options: { value: string, label: string }[];
-  selectedOption?: string;
+  options: { value: string; label: string }[];
+  value?: string | null; // Change type to string | null
+  onChange?: (selectedValue: string) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ textLabel, options }) => {
+const Select: React.FC<SelectProps> = ({ textLabel, options, value, onChange }) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onChange?.(event.target.value);
+  };
+
+  const sanitizedValue = value === null ? undefined : value; // Convert null to undefined
+
   return (
     <div className={styles.customCombobox}>
       <div className={styles.inputContainer}>
         <span className={styles.inputText}>{textLabel}</span>
-        <select className={styles.selectBox}>
+        <select className={styles.selectBox} value={sanitizedValue || ''} onChange={handleChange}> {/* Use sanitizedValue */}
           {options.map(option => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -28,11 +35,6 @@ const Select: React.FC<SelectProps> = ({ textLabel, options }) => {
 
 export default Select;
 
-// example
-// const options = [
-//  { value: 'option1', label: 'Option 1' },
-//  { value: 'option2', label: 'Option 2' },
-//  { value: 'option3', label: 'Option 3' },
-// ];
-// <Select textLabel='Test'
-// options={options}/>
+
+
+
