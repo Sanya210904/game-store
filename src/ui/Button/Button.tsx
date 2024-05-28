@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 
 interface ButtonProps {
   buttonLabel?: string; // Optional, can be used for setting text on some buttons. Important: use this to set a discount on the homeDiscountBuy button & cart item count on the storeNavbarCart button
-  onClick: () => void;
+  onClick?: () => void;
   buttonStyle:
     | 'storeNavbar'
     | 'storeNavbarCart'

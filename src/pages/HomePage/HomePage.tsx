@@ -26,7 +26,7 @@ const HomePage = () => {
         <div className={cls.discountHeader}>
           <h2 className={cls.disountHeaderTitle}>DISCOUNTS</h2>
           <Button
-            buttonStyle="normalPink"
+            buttonStyle="homeMore"
             buttonLabel="more"
             onClick={() => navigate(`/search`)}
           />
@@ -42,13 +42,7 @@ const HomePage = () => {
               style={{ width: 300 }}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
           <div onClick={() => navigate('/game/6')} className={cls.discountCard}>
             <img
@@ -56,13 +50,7 @@ const HomePage = () => {
               src={Image2}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
           <div
             onClick={() => navigate('/game/2012')}
@@ -73,13 +61,7 @@ const HomePage = () => {
               src={Image3}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
 
           <div
@@ -91,13 +73,7 @@ const HomePage = () => {
               src={Image4}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
           <div
             onClick={() => navigate('/game/589')}
@@ -108,13 +84,7 @@ const HomePage = () => {
               src={Image5}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
           <div
             onClick={() => navigate('/game/2040')}
@@ -125,13 +95,7 @@ const HomePage = () => {
               src={Image6}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
 
           <div
@@ -143,13 +107,7 @@ const HomePage = () => {
               src={Image7}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
           <div
             onClick={() => navigate('/game/812')}
@@ -160,13 +118,7 @@ const HomePage = () => {
               src={Image8}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
           <div
             onClick={() => navigate('/game/4504')}
@@ -177,13 +129,7 @@ const HomePage = () => {
               src={Image9}
               className={cls.discountCardImage}
             />
-            <div className={cls.discountPriceBlock}>
-              {/* <img src="./assets/cart.svg" className={cls.discountPriceCart} /> */}
-              <div className={cls.discountPriceInfo}>
-                <p className={cls.discountPriceTitle}>-75%</p>
-                <p className={cls.discountPriceSubtitle}>$12.50</p>
-              </div>
-            </div>
+            <Button buttonLabel="-20%" price="$7.99" buttonStyle="homeDiscountsBuy" />
           </div>
         </div>
       </div>
@@ -192,7 +138,7 @@ const HomePage = () => {
         <div className={cls.discountHeader}>
           <h2 className={cls.disountHeaderTitle}>CATEGORIES</h2>
           <Button
-            buttonStyle="normalPink"
+            buttonStyle="homeMore"
             buttonLabel="more"
             onClick={() => navigate(`/search`)}
           />
