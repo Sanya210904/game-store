@@ -5,7 +5,8 @@ import $api from '../../api';
 import StarImage from '../../assets/images/Star 2.svg';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { addToCart } from '../../feature/CartFeature/store/cartSlice';
+import { handleAddToCart } from '../../feature/CartFeature/store/cartSlice';
+import { Button } from '../../ui';
 
 const GameDetailsPage = () => {
   const [currentGame, setCurrentGame] = useState<Game | null>(null);
@@ -23,15 +24,17 @@ const GameDetailsPage = () => {
     await $api.get(`games/${gameId}`).then((data) => setCurrentGame(data.data));
   };
 
-  const handleAddToCart = (packageTitle: string, packagePrice: number) => {
-    const gameToBuy = currentGame;
+  const addToCart = (id: number) => {
+    console.log('click');
+    dispatch(handleAddToCart(id)).then((data) => console.log(data));
+    // const gameToBuy = currentGame;
 
-    if (!gameToBuy) return;
+    // if (!gameToBuy) return;
 
-    gameToBuy.name = packageTitle;
-    gameToBuy.price = packagePrice;
+    // gameToBuy.name = packageTitle;
+    // gameToBuy.price = packagePrice;
 
-    dispatch(addToCart(gameToBuy));
+    // dispatch(addToCart(gameToBuy));
   };
 
   console.log(currentGame);
@@ -49,10 +52,7 @@ const GameDetailsPage = () => {
               src={currentGame.header_image}
               className={cls.topbarIcon}
             ></img>
-            <span className={cls.topbarGameTitle}>
-              {currentGame.name}
-              {/* Super Street Fighter® IV Arcade Edition */}
-            </span>
+            <span className={cls.topbarGameTitle}>{currentGame.name}</span>
           </div>
           <button className={cls.topbarModsButton}>Mods</button>
         </div>
@@ -61,10 +61,10 @@ const GameDetailsPage = () => {
       <div className={cls.gameSummary}>
         <div className={cls.gameSummaryContainer}>
           <div className={cls.gallery}>
-            {/* <img
-              src="../assets/carousel_image_3.jpg"
+            <img
+              src={currentGame.screenshots[0]}
               className={cls.galleryPreview}
-            ></img> */}
+            ></img>
             <div className={cls.galleryCarouselContainer}>
               <div className={cls.galleryCarousel}>
                 {/* <img src="../assets/carousel_image_1.jpg"></img>
@@ -76,7 +76,7 @@ const GameDetailsPage = () => {
                 <img src="../assets/carousel_image_4.jpg"></img>
                 <img src="../assets/carousel_image_5.jpg"></img> */}
               </div>
-              <div className={cls.galleryCarouselIndicators}>
+              {/* <div className={cls.galleryCarouselIndicators}>
                 <div></div>
                 <div></div>
                 <div className={cls.selected}></div>
@@ -87,7 +87,7 @@ const GameDetailsPage = () => {
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -170,17 +170,20 @@ const GameDetailsPage = () => {
                 <button className={cls.navbarCartButton}>
                   <div className={cls.navbarButtonContainer}>
                     {/* <img src="../assets/cart.svg" /> */}
-                    <div
-                      onClick={() =>
-                        handleAddToCart(gamePackage.title, gamePackage.price)
-                      }
+                    <Button
+                      buttonStyle="gameDetailsBuy"
+                      price={`$${gamePackage.price}`}
+                      onClick={() => addToCart(currentGame.game_id)}
+                    />
+                    {/* <div
+                      onClick={() => addToCart(currentGame.game_id)}
                       className="flexColumn alignLeft"
                     >
                       <p>Add to Cart</p>
                       <p>
                         <span className={cls.price}>${gamePackage.price}</span>
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </button>
               </div>

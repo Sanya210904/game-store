@@ -1,34 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cls from './Navbar.module.scss';
+import { Button, Input } from '../../ui';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const { cart, cartItemsAmount } = useAppSelector((state) => state.cart);
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchButton = () => {
+    if (searchQuery.length === 0) return;
+
+    navigate(`/search/${searchQuery}`);
+  };
+
   return (
     <div className={cls.navbar}>
       <div className={cls.navbarContainer}>
         <div className={cls.navbarbuttonBlock}>
-          <button className={cls.navbar__button}>Categories</button>
-          <button className={cls.navbar__button}>New</button>
-          <button className={cls.navbar__button}>Discounts</button>
-          <button className={cls.navbar__button}>Games I can run</button>
+          <Button
+            buttonStyle="normalPink"
+            buttonLabel="Categories"
+            onClick={() => navigate('/')}
+          />
+          <Button
+            buttonStyle="storeNavbar"
+            buttonLabel="New"
+            onClick={() => navigate('/')}
+          />
+          <Button
+            buttonStyle="storeNavbar"
+            buttonLabel="Discounts"
+            onClick={() => navigate('/')}
+          />
+          <Button
+            buttonStyle="storeNavbar"
+            buttonLabel="Games I Can run"
+            onClick={() => navigate('/')}
+          />
         </div>
 
-        <div className="navbar__searchBlock">
-          <button className="navbar__cart-button">
-            <div className="navbar__button-container">
-              <img src="../assets/cart.svg" />
-              <p>Cart (x)</p>
-            </div>
-          </button>
-          <div className="input__container">
-            <input placeholder="search" className="navbar__input" />
-            <div className="input__block">
-              <span className="input__divider"></span>
-              <img
-                src="../assets/Search Icon.svg"
-                className="input__searchIcon"
-              />
-            </div>
-          </div>
+        <div className={cls.navBarSearchBlock}>
+          <Button
+            buttonLabel={cart.length === 0 ? 'X' : cartItemsAmount.toString()}
+            buttonStyle="storeNavbarCart"
+            onClick={() => {
+              navigate('/cart');
+            }}
+          />
+          <Input
+            onChange={setSearchQuery}
+            type="search"
+            onSearch={handleSearchButton}
+          />
         </div>
       </div>
     </div>

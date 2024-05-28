@@ -47,7 +47,7 @@
   text-decoration: none;
 }
 
-.nav__auth {
+.navAuth {
   display: flex;
   column-gap: 10px;
   align-items: center;
@@ -55,11 +55,11 @@
   margin-top: 11px;
 }
 
-.nav__auth_link {
+.navAuthLink {
   color: var(--text-secondary);
 }
 
-.nav__auth_divider {
+.navAuthDivider {
   background-color: var(--text-secondary);
   height: 10px;
   width: 1px;

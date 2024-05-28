@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Modal } from '../../ui';
+import { Button, Modal } from '../../ui';
 import cls from './DialogModal.module.scss';
 
 type DialogModalProps = {
@@ -18,8 +18,16 @@ const DialogModal: FC<DialogModalProps> = (props) => {
         <h2 className={cls.modalTitle}>Sign up</h2>
         {children}
         <div className={cls.modalButtonBlock}>
-          <button onClick={onClose}>Dismiss</button>
-          <button onClick={onSubmit}>Submit</button>
+          <Button
+            onClick={onSubmit}
+            buttonLabel="Sign in"
+            buttonStyle="normalGreen"
+          />
+          <Button
+            onClick={onClose}
+            buttonLabel="Cancel"
+            buttonStyle="normalPink"
+          />
         </div>
       </div>
     </Modal>

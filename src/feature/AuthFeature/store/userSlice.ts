@@ -1,86 +1,118 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import $api from '../../../api';
-import { Game } from '../../../types/Game';
+
 import { RegisterResponse } from '../types/RegisterResponse';
 import { RegisterRequest } from '../types/RegisterRequest';
 import { LoginResponse } from '../types/LoginResponse';
 import { LoginRequest } from '../types/LoginRequest';
-// import {ISetTestResults} from '../../TestModule/models/ISetTestResultsResponse';
 
 interface IState {
   loading: boolean;
   error: string;
   isAuth: boolean;
   username: string;
+  role: string;
 }
 
 const initialState: IState = {
   loading: false,
   error: '',
-  isAuth: false,
+  isAuth:
+    //@ts-ignore
+    localStorage.getItem('token') && localStorage.getItem('token').length > 0
+      ? true
+      : false,
   username: '',
+  role: '',
 };
 
 export const handleRegister = createAsyncThunk<
   RegisterResponse,
   RegisterRequest
->('user/register', async (user) => {
+>('user/register', async (user, { rejectWithValue }) => {
   try {
     const response = await $api.post('auth/registration', user);
 
-    if (response.status !== 201) {
-      throw new Error('Error');
-    }
+    // if (response.status !== 201) {
+    //   throw new Error('Error');
+    // }
+    console.log(response.data);
 
     return response.data;
   } catch (e) {
-    console.log(e);
+    return rejectWithValue(e);
   }
 });
 
 export const handleLogin = createAsyncThunk<LoginResponse, LoginRequest>(
-  'user/register',
-  async (user) => {
+  'user/login',
+  async (user, { rejectWithValue }) => {
     try {
       const response = await $api.post('auth/login', user);
+      console.log(response.data);
 
-      if (response.status !== 201) {
-        throw new Error('Error');
-      }
+      // if (response.status !== 201) {
+      //   throw new Error('Error');
+      // }
+
+      // console.log(response.data);
 
       return response.data;
     } catch (e) {
-      console.log(e);
+      return rejectWithValue(e);
     }
   }
 );
 
-export const testListSlice = createSlice({
-  name: 'testList',
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    registerUser(state, action:PayloadAction<LoginRequest>) {
-        state.username = action.payload.username;
-    }
+    logout(state) {
+      state.isAuth = false;
+      localStorage.removeItem('token');
+      state.role = '';
+    },
+    // registerUser(state, action: PayloadAction<LoginRequest>) {
+    //   state.username = action.payload.username;
+    // },
   },
   extraReducers(builder) {
     builder.addCase(handleRegister.pending, (state, action) => {
-        state.loading = true;
-        state.error = '';
+      state.loading = true;
+      state.error = '';
     });
     builder.addCase(handleRegister.fulfilled, (state, action) => {
-        state.loading = false;
+      state.loading = false;
+      if (action.payload.token) {
+        localStorage.setItem('token', action.payload.token);
+      }
+      state.isAuth = true;
+      state.role = 'user';
     });
-    
+    builder.addCase(handleRegister.rejected, (state, action) => {
+      //@ts-ignore
+      state.error = action.payload;
+    });
+
     builder.addCase(handleLogin.pending, (state, action) => {
-        state.loading = true;
-        state.error = '';
-    })
+      state.loading = true;
+      state.error = '';
+    });
     builder.addCase(handleLogin.fulfilled, (state, action) => {
-        state.loading = false;
+      state.loading = false;
+      if (action.payload.token) {
+        localStorage.setItem('token', action.payload.token);
+      }
+      state.isAuth = true;
+      state.role = action.payload.role;
+    });
+    builder.addCase(handleLogin.rejected, (state, action) => {
+      //@ts-ignore
+      state.error = action.payload;
     });
   },
 });
 
-export default testListSlice.reducer;
-export const {} = testListSlice.actions;
+export default userSlice.reducer;
+export const { logout } = userSlice.actions;

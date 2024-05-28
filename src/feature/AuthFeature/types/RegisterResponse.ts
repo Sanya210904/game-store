@@ -1,1 +1,3 @@
-export type RegisterResponse = string;
+export type RegisterResponse = {
+  token: string;
+};

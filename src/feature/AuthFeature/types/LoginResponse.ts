@@ -1,1 +1,4 @@
-export type LoginResponse = string;
+export type LoginResponse = {
+    token: string;
+    role: string;
+}

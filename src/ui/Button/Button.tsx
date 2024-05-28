@@ -2,57 +2,95 @@ import React from 'react';
 import styles from './Button.module.scss';
 
 interface ButtonProps {
-  buttonLabel?: string;         // Optional, can be used for setting text on some buttons. Important: use this to set a discount on the homeDiscountBuy button & cart item count on the storeNavbarCart button
+  buttonLabel?: string; // Optional, can be used for setting text on some buttons. Important: use this to set a discount on the homeDiscountBuy button & cart item count on the storeNavbarCart button
   onClick: () => void;
-  buttonStyle: 'storeNavbar' | 'storeNavbarCart' | 'gameDetailsMods' | 'homeMore' | 'normalPink' | 'normalGreen' | 'continueShopping' | 'cartPay' | 'homeFeaturedBuy' | 'homeDiscountsBuy' | 'gameDetailsBuy';
-  price?: string;         // Optional, can be used to set the price on cartPay, homeFeaturedBuy, homeDiscountBuy, and gameDetailsBuy buttons. Usage: price="$7.99"
+  buttonStyle:
+    | 'storeNavbar'
+    | 'storeNavbarCart'
+    | 'gameDetailsMods'
+    | 'homeMore'
+    | 'normalPink'
+    | 'normalGreen'
+    | 'continueShopping'
+    | 'cartPay'
+    | 'homeFeaturedBuy'
+    | 'homeDiscountsBuy'
+    | 'gameDetailsBuy';
+  price?: string; // Optional, can be used to set the price on cartPay, homeFeaturedBuy, homeDiscountBuy, and gameDetailsBuy buttons. Usage: price="$7.99"
 }
 
-const Button: React.FC<ButtonProps> = ({ buttonLabel, onClick, buttonStyle, price }) => {
+const Button: React.FC<ButtonProps> = ({
+  buttonLabel,
+  onClick,
+  buttonStyle,
+  price,
+}) => {
   const className = `${styles[buttonStyle]}`;
-  
-  if(buttonStyle === 'gameDetailsBuy' || buttonStyle === 'homeFeaturedBuy') {
+
+  if (buttonStyle === 'gameDetailsBuy' || buttonStyle === 'homeFeaturedBuy') {
     return (
       <button className={className} onClick={onClick}>
         <div className={styles.buyButtonContainer}>
-          <img className={styles.cartIcon} src={require('../../assets/images/cart.svg').default} alt='Cart' />
+          <img
+            className={styles.cartIcon}
+            src={require('../../assets/images/cart.svg').default}
+            alt="Cart"
+          />
           <div className={styles.buyButtonTextContainer}>
             <p>Add to Cart</p>
-            {price && <p><span className={styles.price}>{price}</span></p>}
+            {price && (
+              <p>
+                <span className={styles.price}>{price}</span>
+              </p>
+            )}
           </div>
         </div>
       </button>
     );
   }
-  
-  if(buttonStyle === 'homeDiscountsBuy') {
+
+  if (buttonStyle === 'homeDiscountsBuy') {
     return (
       <button className={className} onClick={onClick}>
         <div className={styles.buyButtonContainer}>
-          <img className={styles.cartIcon} src={require('../../assets/images/cart.svg').default} alt='Cart' />
+          <img
+            className={styles.cartIcon}
+            src={require('../../assets/images/cart.svg').default}
+            alt="Cart"
+          />
           <div className={styles.buyButtonTextContainer}>
             {buttonLabel}
-            {price && <p><span className={styles.price}>{price}</span></p>}
+            {price && (
+              <p>
+                <span className={styles.price}>{price}</span>
+              </p>
+            )}
           </div>
         </div>
       </button>
     );
   }
-  
-  if(buttonStyle === 'cartPay') {
+
+  if (buttonStyle === 'cartPay') {
     return (
       <button className={className} onClick={onClick}>
-        <p>Pay
-        {price && <span className={styles.pricePay}> {price}</span>} </p>
+        <p>
+          Pay
+          {price && <span className={styles.pricePay}> {price}</span>}{' '}
+        </p>
       </button>
     );
   }
-  
-  if(buttonStyle === 'storeNavbarCart') {
+
+  if (buttonStyle === 'storeNavbarCart') {
     return (
       <button className={className} onClick={onClick}>
         <div className={styles.buyButtonContainer}>
-          <img className={styles.cartIcon} src={require('../../assets/images/cart.svg').default} alt='Cart' />
+          <img
+            className={styles.cartIcon}
+            src={require('../../assets/images/cart.svg').default}
+            alt="Cart"
+          />
           <p>Cart ({buttonLabel})</p>
         </div>
       </button>
@@ -67,7 +105,6 @@ const Button: React.FC<ButtonProps> = ({ buttonLabel, onClick, buttonStyle, pric
 };
 
 export default Button;
-
 
 // examples
 // <Button buttonLabel="Store Navbar" onClick={handleClick} buttonStyle="storeNavbar" />

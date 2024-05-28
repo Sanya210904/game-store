@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cls from './CartItem.module.scss';
 import StarImage from '../../../../assets/images/Star 2.svg';
 import CloseIcon from '../../../../assets/images/close.svg';
+import { Link } from 'react-router-dom';
 
 type CartItemProps = {
   image: string;
@@ -40,7 +41,9 @@ const CartItem: FC<CartItemProps> = (props) => {
       </div>
       <div className={cls.gameInfoBlock}>
         <div className={cls.gameHeader}>
-          <h2 className={cls.gameHeaderTitle}>{title}</h2>
+          <Link to={`/game/${id}`} className={cls.gameHeaderTitle}>
+            {title}
+          </Link>
 
           <div className={cls.gameRatingBlock}>
             {Array.from({ length: rating }, (num) => (

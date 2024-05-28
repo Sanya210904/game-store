@@ -1,0 +1,115 @@
+.discount {
+  margin-top: 18px;
+  margin-bottom: 40px;
+}
+
+.discountHeader {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.disountHeaderTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.discountBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+.discountCard {
+  position: relative;
+  width: 300px;
+  height: 170px;
+  cursor: pointer;
+}
+
+// .discountCartImage {
+//   width: 300px;
+//   height: 170px;
+// }
+
+.discountPriceBlock {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 200, 128, 1) 0%,
+    rgba(76, 183, 119, 0.3) 75%
+  );
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  padding: 3px 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discountPriceCart {
+  width: 13px;
+  height: 12px;
+}
+
+.discountPriceInfo {
+  color: #fff;
+  margin-left: 4px;
+}
+
+.discountPriceTitle {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.category {
+    
+}
+
+.categoryBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 940px;
+}
+
+.categoryCard {
+  width: 220px;
+  height: 220px;
+  position: relative;
+}
+
+.categoryCardImage {
+  width: 100%;
+  height: 100%;
+}
+
+.categoryTitleBlock {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: rgb(110, 106, 105); */
+  background: linear-gradient(
+    180deg,
+    rgba(110, 106, 105, 0.4) 0%,
+    rgba(255, 96, 172, 0.7) 0%
+  );
+}
+
+.categorTitle {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}

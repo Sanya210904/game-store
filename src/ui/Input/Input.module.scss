@@ -1,29 +1,36 @@
 input {
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 400;
-	border: 1px solid var(--input-border);
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  border: 1px solid var(--input-border);
+}
+
+.inputTitle {
+  color: #dfdfdf;
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: 400;
 }
 
 .searchContainer {
-	width: 250px;
-	height: 27px;
-	position: relative;
+  width: 250px;
+  height: 27px;
+  position: relative;
 }
 
 .searchDivider {
-	height: 19px;
-	width: 1px;
-	background: var(--input-separator);
-	-webkit-filter: drop-shadow(1px 1px 1px var(--shadow-dark));
-	filter: drop-shadow(1px 1px 1px var(--shadow-dark));
+  height: 19px;
+  width: 1px;
+  background: var(--input-separator);
+  -webkit-filter: drop-shadow(1px 1px 1px var(--shadow-dark));
+  filter: drop-shadow(1px 1px 1px var(--shadow-dark));
 }
 
 .searchIcon {
-	width: 16px;
-	height: 16px;
-	-webkit-filter: drop-shadow(1px 1px 1px var(--shadow-dark));
-	filter: drop-shadow(1px 1px 1px var(--shadow-dark));
+  width: 16px;
+  height: 16px;
+  -webkit-filter: drop-shadow(1px 1px 1px var(--shadow-dark));
+  filter: drop-shadow(1px 1px 1px var(--shadow-dark));
 }
 .searchInputBlock {
   position: absolute;
@@ -34,28 +41,29 @@ input {
   display: flex;
   align-items: center;
   column-gap: 6px;
+  cursor: pointer;
 }
 
 .searchInput {
-	width: 250px;
-	height: 27px;
-	background: var(--input-search);
-	color: var(--text-secondary);
-	padding: 0 7px;
-	border-radius: 5px;
-	box-shadow: inset 0px 0px 3px 2px var(--shadow-dark);
-	
-	&::placeholder {
-		font-style:italic;
-	}
+  width: 250px;
+  height: 27px;
+  background: var(--input-search);
+  color: var(--text-secondary);
+  padding: 0 7px;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 3px 2px var(--shadow-dark);
+
+  &::placeholder {
+    font-style: italic;
+  }
 }
 
 .formInput {
-	box-sizing: border-box;
-	font-size: 12px;
-	width: 278px;
-	height: 20px;
-	background: var(--text-secondary);
-	border-radius: 2px;
-	padding: 0 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+  width: 278px;
+  height: 20px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+  padding: 0 5px;
 }

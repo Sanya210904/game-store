@@ -1,15 +1,18 @@
 import React, { FC } from 'react';
 import cls from './CartCheckout.module.scss';
+import { Button } from '../../../../ui';
 
 type CartCheckoutProps = {
   cartItemsAmount: number;
   initialPrice: number;
   discounts: number;
   totalPrice: number;
+  onSubmit: () => void;
 };
 
 const CartCheckout: FC<CartCheckoutProps> = (props) => {
-  const { cartItemsAmount, initialPrice, discounts, totalPrice } = props;
+  const { cartItemsAmount, initialPrice, discounts, totalPrice, onSubmit } =
+    props;
 
   return (
     <div className={cls.cartInfoBlock}>
@@ -45,9 +48,7 @@ const CartCheckout: FC<CartCheckoutProps> = (props) => {
         <p className={cls.cartInfoText}>${totalPrice}</p>
       </div>
 
-      {/* <button class="cart__info-button">
-        <p class="cart__info-button-text">Pay $53.47</p>
-      </button> */}
+      <Button onClick={onSubmit} buttonStyle="cartPay" />
     </div>
   );
 };
