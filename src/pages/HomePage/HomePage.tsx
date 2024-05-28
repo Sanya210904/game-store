@@ -15,8 +15,11 @@ import C1 from './../../assets/images/c1.png';
 import C2 from './../../assets/images/c2.png';
 import C3 from './../../assets/images/c3.png';
 import C4 from './../../assets/images/c4.png';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className={cls.discount}>
@@ -30,7 +33,10 @@ const HomePage = () => {
         </div>
 
         <div className={cls.discountBlock}>
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/612')}
+            className={cls.discountCard}
+          >
             <img
               src={Image1}
               style={{ width: 300 }}
@@ -44,7 +50,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className={cls.discountCard}>
+          <div onClick={() => navigate('/game/6')} className={cls.discountCard}>
             <img
               style={{ width: 300, height: 170 }}
               src={Image2}
@@ -58,7 +64,10 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/2012')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image3}
@@ -73,7 +82,10 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/2335')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image4}
@@ -87,7 +99,10 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/589')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image5}
@@ -101,7 +116,10 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/2040')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image6}
@@ -116,7 +134,10 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/443')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image7}
@@ -130,7 +151,10 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/812')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image8}
@@ -144,7 +168,10 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className={cls.discountCard}>
+          <div
+            onClick={() => navigate('/game/4504')}
+            className={cls.discountCard}
+          >
             <img
               style={{ width: 300, height: 170 }}
               src={Image9}
