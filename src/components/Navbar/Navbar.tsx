@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className={cls.navbarContainer}>
         <div className={cls.navbarbuttonBlock}>
           <Button
-            buttonStyle="normalPink"
+            buttonStyle="storeNavbar"
             buttonLabel="Categories"
             onClick={() => navigate('/')}
           />
@@ -38,7 +38,7 @@ const Navbar = () => {
           />
           <Button
             buttonStyle="storeNavbar"
-            buttonLabel="Games I Can run"
+            buttonLabel="Games I Can Run"
             onClick={() => navigate('/')}
           />
         </div>

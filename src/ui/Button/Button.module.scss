@@ -158,7 +158,7 @@ button {
 	font-weight: 400;
 	width: 109px;
 	height: 60px;
-	border-radius: none;
+	border-radius: 0;
 	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
 	
 	&:hover {
@@ -170,9 +170,15 @@ button {
 .homeDiscountsBuy {					// Small discount buy button (home page)
 	width: 65px;
 	height: 40px;
-	border-radius: none;
+	border-radius: 0;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: inline-block;
 	background: linear-gradient(to top, var(--button-green-from) 6.7%, var(--button-green-to) 63.88%);
 	font-weight: 600;
+	backdrop-filter: blur(2.5px);
+	--webkit-backdrop-filter: blur(2.5px);
 	
 	&:hover {
 		background: linear-gradient(to top, var(--button-green-from-hover) 6.7%, var(--button-green-to-hover) 63.88%);
