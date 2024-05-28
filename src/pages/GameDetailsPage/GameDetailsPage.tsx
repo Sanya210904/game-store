@@ -54,7 +54,7 @@ const GameDetailsPage = () => {
             ></img>
             <span className={cls.topbarGameTitle}>{currentGame.name}</span>
           </div>
-          <button className={cls.topbarModsButton}>Mods</button>
+          <Button buttonLabel="Mods" buttonStyle="gameDetailsMods" />
         </div>
       </div>
 
@@ -433,15 +433,15 @@ const GameDetailsPage = () => {
               </div>
             </div>
             <div className={cls.viewAllContainer}>
-              <button className={cls.pinkButton}>view all</button>
+              <Button buttonLabel="view all" buttonStyle="normalPink" />
             </div>
           </div>
         </div>
         <div className={cls.info}>
           {/* <img src="../assets/advisory.png" /> */}
           <div className={cls.linksContainer}>
-            <button className={cls.pinkButton}>Visit Website</button>
-            <button className={cls.pinkButton}>Share</button>
+            <Button buttonLabel="Visit Website" buttonStyle="normalPink" />
+            <Button buttonLabel="Share" buttonStyle="normalPink" />
           </div>
         </div>
       </div>
