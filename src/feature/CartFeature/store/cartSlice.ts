@@ -129,7 +129,7 @@ export const testListSlice = createSlice({
     });
     builder.addCase(handleGetCart.fulfilled, (state, action) => {
       state.loading = false;
-      if (action.payload) {
+      if (action.payload && action.payload?.items) {
         state.cart = action.payload.items;
       }
       state.cartItemsAmount = action.payload.items.length;

@@ -54,12 +54,14 @@ const CartFeature = () => {
           cart.map((item) => (
             <CartItem
               onRemove={removeFromCart}
-              id={item.game.game_id}
-              image={item.game.header_image}
-              title={item.game.name}
+              id={item?.game?.game_id}
+              image={item?.game?.header_image}
+              title={item?.game?.name}
               rating={4}
-              price={item.game.price}
-              screenshot={item.game.screenshots ? item.game.screenshots[0] : ''}
+              price={item?.game?.price}
+              screenshot={
+                item?.game?.screenshots ? item?.game?.screenshots[0] : ''
+              }
             />
           ))
         ) : (
