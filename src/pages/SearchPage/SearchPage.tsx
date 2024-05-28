@@ -92,7 +92,6 @@ const SearchPage = () => {
 
   const handleGenreChange = (selectedGenre: string) => {
     setSelectedGenre(selectedGenre);
-    navigate(`/search/${search}${selectedGenre ? `?genres=${selectedGenre}` : ''}`);
   };
 
   return (
@@ -132,7 +131,7 @@ const SearchPage = () => {
             <div className={cls.separator} />
 
             <div className={cls.buttonBlock}>
-              <Button buttonStyle="normalPink" buttonLabel="Apply Filters" onClick={() => undefined} />
+              <Button buttonStyle="normalPink" buttonLabel="Apply Filters" onClick={() => navigate(`/search/${search}${selectedGenre ? `?genres=${selectedGenre}` : ''}`)} />
               <Button buttonStyle="normalPink" buttonLabel="Reset" onClick={() => undefined} />
             </div>
           </div>
