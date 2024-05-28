@@ -28,7 +28,7 @@ const HomePage = () => {
           <Button
             buttonStyle="normalPink"
             buttonLabel="more"
-            onClick={() => undefined}
+            onClick={() => navigate(`/search`)}
           />
         </div>
 
@@ -194,35 +194,50 @@ const HomePage = () => {
           <Button
             buttonStyle="normalPink"
             buttonLabel="more"
-            onClick={() => undefined}
+            onClick={() => navigate(`/search`)}
           />
         </div>
         <div className={cls.categoryBlock}>
-          <div className={cls.categoryCard}>
-            <img className={cls.categoryCardImage} src={C1} />
+          <div 
+            className={cls.categoryCard}
+            onClick={() => navigate(`/search?genres=Simulation`)}
+            style={{ cursor: 'pointer' }}>
+            <img className={cls.categoryCardImage} src={C1} alt="Simulation" />
             <div className={cls.categoryTitleBlock}>
-              <h6 className={cls.categorTitle}>racing</h6>
+              <h6 className={cls.categorTitle}>Simulation</h6>
             </div>
           </div>
 
-          <div className={cls.categoryCard}>
-            <img className={cls.categoryCardImage} src={C2} />
+          <div
+            className={cls.categoryCard}
+            onClick={() => navigate(`/search?genres=Adventure`)}
+            style={{ cursor: 'pointer' }}
+          >
+            <img className={cls.categoryCardImage} src={C3} alt="Adventure" />
             <div className={cls.categoryTitleBlock}>
-              <h6 className={cls.categorTitle}>horror</h6>
+              <h6 className={cls.categorTitle}>Adventure</h6>
             </div>
           </div>
 
-          <div className={cls.categoryCard}>
-            <img className={cls.categoryCardImage} src={C3} />
+          <div
+            className={cls.categoryCard}
+            onClick={() => navigate(`/search?genres=Indie`)}
+            style={{ cursor: 'pointer' }}
+          >
+            <img className={cls.categoryCardImage} src={C3} alt="Indie" />
             <div className={cls.categoryTitleBlock}>
-              <h6 className={cls.categorTitle}>adventure</h6>
+              <h6 className={cls.categorTitle}>Indie</h6>
             </div>
           </div>
 
-          <div className={cls.categoryCard}>
-            <img className={cls.categoryCardImage} src={C4} />
+          <div
+            className={cls.categoryCard}
+            onClick={() => navigate(`/search?genres=Free to Play`)}
+            style={{ cursor: 'pointer' }}
+          >
+            <img className={cls.categoryCardImage} src={C3} alt="Free to Play" />
             <div className={cls.categoryTitleBlock}>
-              <h6 className={cls.categorTitle}>fighting</h6>
+              <h6 className={cls.categorTitle}>Free to Play</h6>
             </div>
           </div>
         </div>

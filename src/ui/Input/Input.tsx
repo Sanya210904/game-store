@@ -18,14 +18,19 @@ const Input: React.FC<InputProps> = ({
   title,
   onSearch,
 }) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event.target.value);
+    }
+  };
+
   if (type === 'search') {
     return (
       <div className={styles.searchContainer}>
         <input
-          //@ts-ignore
-          onChange={(e) => onChange(e.target.value)}
+          onChange={handleChange} // Use handleChange here
           type="text"
-          placeholder="search store"
+          placeholder={placeholder || 'Search store'}
           className={styles.searchInput}
           value={value}
         />
@@ -45,8 +50,7 @@ const Input: React.FC<InputProps> = ({
     <div className={styles.inputBlock}>
       {title && <h4 className={styles.inputTitle}>{title}</h4>}
       <input
-        //@ts-ignore
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleChange} // Use handleChange here
         type={type}
         placeholder={placeholder}
         className={styles.formInput}
@@ -55,6 +59,7 @@ const Input: React.FC<InputProps> = ({
     </div>
   );
 };
+
 
 export default Input;
 

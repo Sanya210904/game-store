@@ -20,7 +20,7 @@ const AppRouter = () => {
         <Route index path="/" element={<HomePage />} />
         <Route path="/game/:gameId" element={<GameDetailsPage />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/search/:search" element={<SearchPage />} />
+        <Route path="/search/:search?/:genres?" element={<SearchPage />} />
 
         <Route
           path="/dashboard"

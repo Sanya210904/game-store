@@ -10,9 +10,11 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchButton = () => {
-    if (searchQuery.length === 0) return;
-
-    navigate(`/search/${searchQuery}`);
+    if (searchQuery.length === 0) {
+      navigate(`/search`);
+    } else {
+      navigate(`/search/${searchQuery}`);
+    }
   };
 
   return (
@@ -50,7 +52,7 @@ const Navbar = () => {
             }}
           />
           <Input
-            onChange={setSearchQuery}
+            onChange={(value) => setSearchQuery(value)} // Corrected onChange handler
             type="search"
             onSearch={handleSearchButton}
           />
@@ -61,3 +63,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
