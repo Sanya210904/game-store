@@ -115,11 +115,6 @@ export const testListSlice = createSlice({
         (game) => game.game.game_id !== action.payload
       );
       state.cart = changedCart;
-
-      // const changedPrice = changedCart.reduce((totalPrice, game) => {
-      //   return totalPrice + game.game.price;
-      // }, 0);
-      // state.totalPrice = changedPrice;
     },
   },
   extraReducers(builder) {
@@ -145,6 +140,8 @@ export const testListSlice = createSlice({
     builder.addCase(handleAddToCart.fulfilled, (state, action) => {
       state.loading = false;
       state.cartItemsAmount += 1;
+      state.cart.push(action.payload);
+      console.log('added');
     });
     builder.addCase(handleAddToCart.rejected, (state, action) => {
       state.loading = false;

@@ -5,6 +5,7 @@ import { DialogModal } from '../../components';
 import ModalContext from '../../providers/ModalProvider';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { handleLogin, handleRegister } from './store/userSlice';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 type AuthFeatureProps = {};
 
@@ -12,8 +13,7 @@ const AuthFeature: FC<AuthFeatureProps> = (props) => {
   //@ts-ignore
   const { isOpenModal, handleCloseModal, authType } = useContext(ModalContext);
   const dispatch = useAppDispatch();
-
-  const [error, setError] = useState('');
+  const { error } = useAppSelector((state) => state.user);
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -48,8 +48,14 @@ const AuthFeature: FC<AuthFeatureProps> = (props) => {
         confirm_password: confirmPassword,
       };
       dispatch(handleRegister(serverData))
+        .then((data) => console.log(data))
         .then(() => clearFields())
-        .then(() => handleCloseModal());
+        .then(() => {
+          if (!error) {
+            console.log('success');
+            handleCloseModal();
+          }
+        });
       console.log(serverData);
     }
   };
@@ -59,6 +65,9 @@ const AuthFeature: FC<AuthFeatureProps> = (props) => {
       onClose={handleCloseModal}
       onSubmit={handleSubmitButton}
       isOpen={isOpenModal}
+      title={authType === 'register' ? 'Sign up' : 'Sign in'}
+      submitButtonLabel={authType === 'register' ? 'Sign up' : 'Sign in'}
+      cancelButtonLabel="Cancel"
     >
       {authType === 'register' ? (
         <div className={cls.block}>

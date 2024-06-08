@@ -9,10 +9,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
+  console.log(`Cart length: ${cart.length}`);
+  console.log(`Cart items amount: ${cartItemsAmount}`);
+
   const handleSearchButton = () => {
-    if (searchQuery.length === 0) {
-      navigate(`/search`);
-    } else {
+    if (searchQuery.length !== 0) {
       navigate(`/search/${searchQuery}`);
     }
   };
@@ -52,7 +53,7 @@ const Navbar = () => {
             }}
           />
           <Input
-            onChange={(value) => setSearchQuery(value)} // Corrected onChange handler
+            onChange={(value) => setSearchQuery(value)}
             type="search"
             onSearch={handleSearchButton}
           />
@@ -63,4 +64,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

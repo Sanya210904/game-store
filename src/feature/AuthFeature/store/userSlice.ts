@@ -32,10 +32,11 @@ export const handleRegister = createAsyncThunk<
 >('user/register', async (user, { rejectWithValue }) => {
   try {
     const response = await $api.post('auth/registration', user);
+    console.log(response);
 
-    // if (response.status !== 201) {
-    //   throw new Error('Error');
-    // }
+    if (response.status !== 200) {
+      throw new Error('Error');
+    }
     console.log(response.data);
 
     return response.data;
@@ -49,13 +50,13 @@ export const handleLogin = createAsyncThunk<LoginResponse, LoginRequest>(
   async (user, { rejectWithValue }) => {
     try {
       const response = await $api.post('auth/login', user);
-      console.log(response.data);
+      console.log(response);
 
-      // if (response.status !== 201) {
-      //   throw new Error('Error');
-      // }
+      if (response.status !== 200) {
+        throw new Error('Error');
+      }
 
-      // console.log(response.data);
+      console.log(response);
 
       return response.data;
     } catch (e) {
@@ -73,9 +74,6 @@ export const userSlice = createSlice({
       localStorage.removeItem('token');
       state.role = '';
     },
-    // registerUser(state, action: PayloadAction<LoginRequest>) {
-    //   state.username = action.payload.username;
-    // },
   },
   extraReducers(builder) {
     builder.addCase(handleRegister.pending, (state, action) => {
@@ -109,7 +107,7 @@ export const userSlice = createSlice({
     });
     builder.addCase(handleLogin.rejected, (state, action) => {
       //@ts-ignore
-      state.error = action.payload;
+      state.error = action.payload.response;
     });
   },
 });

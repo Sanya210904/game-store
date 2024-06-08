@@ -42,7 +42,7 @@ const CartFeature = () => {
   console.log(cart);
 
   if (!cart || cart.length === 0) {
-    return <></>;
+    return <div>Cart is empty!</div>;
   }
 
   return (

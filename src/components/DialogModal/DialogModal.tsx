@@ -7,25 +7,36 @@ type DialogModalProps = {
   onSubmit: () => void;
   isOpen: boolean;
   children: ReactNode;
+  title: string;
+  submitButtonLabel?: string;
+  cancelButtonLabel?: string;
 };
 
 const DialogModal: FC<DialogModalProps> = (props) => {
-  const { onClose, onSubmit, isOpen, children } = props;
+  const {
+    onClose,
+    onSubmit,
+    isOpen,
+    children,
+    title,
+    submitButtonLabel = 'Submit',
+    cancelButtonLabel = 'Cancel',
+  } = props;
 
   return (
     <Modal onClose={onClose} isOpen={isOpen}>
       <div className={cls.formContainer}>
-        <h2 className={cls.modalTitle}>Sign up</h2>
+        <h2 className={cls.modalTitle}>{title}</h2>
         {children}
         <div className={cls.modalButtonBlock}>
           <Button
             onClick={onSubmit}
-            buttonLabel="Sign in"
+            buttonLabel={submitButtonLabel}
             buttonStyle="normalGreen"
           />
           <Button
             onClick={onClose}
-            buttonLabel="Cancel"
+            buttonLabel={cancelButtonLabel}
             buttonStyle="normalPink"
           />
         </div>
